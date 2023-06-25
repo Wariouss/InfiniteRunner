@@ -3,36 +3,32 @@ using UnityEngine;
 
 public class SpikePool : MonoBehaviour
 {
-    public GameObject spikePrefab;
+    public SpikeScript spikePrefab;
     public int size;
-    private Queue<GameObject> pool;
+    private Queue<SpikeScript> pool;
 
     void Awake()
     {
-        pool = new Queue<GameObject>();
+        pool = new Queue<SpikeScript>();
 
         for (int i = 0; i < size; i++)
         {
-            GameObject obj = Instantiate(spikePrefab);
-            obj.SetActive(false);
+            SpikeScript obj = Instantiate(spikePrefab);
+            obj.gameObject.SetActive(false);
             pool.Enqueue(obj);
         }
     }
 
-    public GameObject GetObject()
+    public SpikeScript GetObject()
     {
-       
-       GameObject obj = pool.Dequeue();
-       obj.SetActive(true);
-       return obj;
-        
-       
+        SpikeScript obj = pool.Dequeue();
+        obj.gameObject.SetActive(true);
+        return obj;
     }
 
-    public void ReturnObject(GameObject obj)
+    public void ReturnObject(SpikeScript obj)
     {
-        obj.SetActive(false);
+        obj.gameObject.SetActive(false);
         pool.Enqueue(obj);
     }
 }
-
