@@ -2,16 +2,21 @@ using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+
 public class PlayerScrpt : MonoBehaviour
 {
+    public SpikeScript _spikeScript { get; private set; }
     public SpikeGenerator spikeGenerator;
     private Rigidbody2D prb;
     private Animator anim;
     //private Vector2 _direction = Vector2.right;
     float score;
+    float scoretime;
     public Text ScoreTxt;
+
     [SerializeField] private float moveSpeed = 7f;
-    [SerializeField] private float jumpForce = 18f;
+    [SerializeField] private float jumpForce = 13f;
 
     [SerializeField] private bool isGrounded = false;
     [SerializeField] private bool isAlive = true;
@@ -63,9 +68,11 @@ public class PlayerScrpt : MonoBehaviour
     {
         if (isAlive)
         {
-            score = Mathf.MoveTowards(score, 1.0f, Time.deltaTime / 360);
+            scoretime = (spikeGenerator.CurrentSpeed - spikeGenerator.MinSpeed) / spikeGenerator.SpeedMultiplier;
+            score = Mathf.MoveTowards(score, 1.0f,spikeGenerator.CurrentSpeed/450000);
             int scoreToDisplay = (int)Mathf.Lerp(0, 9999f, score);
-            ScoreTxt.text = "Score " + scoreToDisplay.ToString();
+            ScoreTxt.text = "Score: " + scoreToDisplay.ToString();
+            GameData.Instance.Score = scoreToDisplay;
         }
 
         UpdateAnimationState();
@@ -107,7 +114,7 @@ public class PlayerScrpt : MonoBehaviour
 
         }
 
-        if (collision.gameObject.CompareTag("spike"))
+        if (collision.gameObject.CompareTag("spike") || collision.gameObject.CompareTag("ship"))
         {
             isAlive = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -116,6 +123,7 @@ public class PlayerScrpt : MonoBehaviour
 
         
     }
+ 
 
 
 }

@@ -13,8 +13,15 @@ public class SpikeDestroyer : MonoBehaviour
     {
         if (collision.TryGetComponent(out SpikeScript spike))
         {
-            if (_spikeGenerator)
+            if (collision.tag == "spike")
                 _spikeGenerator.generateSpike(spike);
+                
+        }
+        if (collision.TryGetComponent(out SpikeScript ship))
+        {
+            if (collision.tag == "ship")
+                _spikeGenerator.generateShip(ship);
+
         }
     }
 }
