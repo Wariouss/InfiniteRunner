@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class S : MonoBehaviour
+public class ShipPool : MonoBehaviour
 {
     public SpikeScript shipPrefab;
     public int size;
