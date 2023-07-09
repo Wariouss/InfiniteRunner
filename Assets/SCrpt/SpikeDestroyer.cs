@@ -8,20 +8,11 @@ public class SpikeDestroyer : MonoBehaviour
     {
         _spikeGenerator = FindObjectOfType<SpikeGenerator>();
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out SpikeScript spike))
+        if (collision.TryGetComponent(out ObstaclesClass spike))
         {
-            if (collision.tag == "spike")
-                _spikeGenerator.generateSpike(spike);
-                
-        }
-        if (collision.TryGetComponent(out SpikeScript ship))
-        {
-            if (collision.tag == "ship")
-                _spikeGenerator.generateShip(ship);
-
+            _spikeGenerator.RemoveObstacle(spike);
         }
     }
 }

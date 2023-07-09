@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4901582057639573423}
   - component: {fileID: 1891867086048346596}
   - component: {fileID: 3185355113595867667}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ship
   m_TagString: ship
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.002195716, y: 0.022557229}
+  m_Offset: {x: 0.002195716, y: -0.054570064}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.28866667}
@@ -113,7 +113,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4655974, y: 0.6749211}
+  m_Size: {x: 0.4655974, y: 0.5206665}
   m_EdgeRadius: 0
 --- !u!50 &992150428507035449
 Rigidbody2D:
@@ -148,9 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a63bf51a1d5864585c6920fd694da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lowerBound: 0.8
-  upperBound: 5
-  smoothTime: 1
+  lowerBound: 1
+  upperBound: 2
+  smoothTime: 0
 --- !u!68 &1891867086048346596
 EdgeCollider2D:
   m_ObjectHideFlags: 0

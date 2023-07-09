@@ -14,10 +14,12 @@ public class GameData : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            Debug.Log("InitialScore: " + GameData.Instance.Score);
         }
         else
         {
             Destroy(gameObject);
         }
+        
     }
 }

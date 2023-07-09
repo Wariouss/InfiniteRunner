@@ -123,52 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &24711028
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 24711029}
-  - component: {fileID: 24711030}
-  m_Layer: 0
-  m_Name: ShipPool
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &24711029
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24711028}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.351668, y: -3.9035532, z: 26.898926}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1820856369}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &24711030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24711028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30d0b8d2eb4677a4f9690a937a6974b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipPrefab: {fileID: -4901582057639573423, guid: d5d972c9f64da64428af64843aad62e9, type: 3}
-  size: 5
 --- !u!1 &99279426
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,7 +290,7 @@ Transform:
   m_Children:
   - {fileID: 1213499806}
   m_Father: {fileID: 1820856369}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -542,7 +496,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 972485328}
-  - component: {fileID: 972485327}
+  - component: {fileID: 972485329}
   m_Layer: 0
   m_Name: SpikePool
   m_TagString: Untagged
@@ -550,20 +504,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &972485327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972485326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f00c55a4d7ee4944b81a60d049e0502, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spikePrefab: {fileID: -4901582057639573423, guid: 28780b21dd28ca34f84f9a908dd1f8ff, type: 3}
-  size: 5
 --- !u!4 &972485328
 Transform:
   m_ObjectHideFlags: 0
@@ -579,6 +519,22 @@ Transform:
   m_Father: {fileID: 1820856369}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &972485329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972485326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f00c55a4d7ee4944b81a60d049e0502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObstaclePrefab:
+  - {fileID: -1568643483943751671, guid: 28780b21dd28ca34f84f9a908dd1f8ff, type: 3}
+  - {fileID: -4901582057639573423, guid: d5d972c9f64da64428af64843aad62e9, type: 3}
+  size: 5
 --- !u!1 &1010657800
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,7 +617,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1820856369}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1010657804
 MonoBehaviour:
@@ -774,7 +730,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213499805}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2627,7 +2583,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820615420}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.34, y: -3.35, z: 37.629448}
+  m_LocalPosition: {x: -5.71, y: -3.31, z: 37.629448}
   m_LocalScale: {x: 0.93813, y: 0.93813, z: 0.93813}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2720,7 +2676,6 @@ Transform:
   - {fileID: 932548624}
   - {fileID: 99279429}
   - {fileID: 972485328}
-  - {fileID: 24711029}
   - {fileID: 454385434}
   - {fileID: 1010657803}
   m_Father: {fileID: 0}
@@ -2747,7 +2702,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8854941257343544814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.221207, y: -3.6375093, z: 37.629448}
+  m_LocalPosition: {x: 19.15, y: -3.81, z: 37.629448}
   m_LocalScale: {x: 0.4, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2836,9 +2791,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22b7f03358214c447b3f2a37951edd7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spikePool: {fileID: 972485327}
-  shipPool: {fileID: 24711030}
+  spikePool: {fileID: 972485329}
   _minSpeed: 8
   _maxSpeed: 23
   _currentSpeed: 0
-  _speedMultiplier: 0.007
+  _speedMultiplier: 0.0007
+  _minSpanwTime: 0.7
+  _maxSpawnTime: 1.2

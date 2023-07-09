@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScrpt : MonoBehaviour
 {
-    public SpikeScript _spikeScript { get; private set; }
+    public MoveableSpike _spikeScript { get; private set; }
     public SpikeGenerator spikeGenerator;
     private Rigidbody2D prb;
     private Animator anim;
@@ -29,8 +29,6 @@ public class PlayerScrpt : MonoBehaviour
         prb = GetComponent<Rigidbody2D>(); //player ridgidbody
         score = 0;
         anim = GetComponent<Animator>();
-
-
     }
 
 
@@ -118,7 +116,6 @@ public class PlayerScrpt : MonoBehaviour
         {
             isAlive = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-
         }
 
         

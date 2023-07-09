@@ -10,64 +10,64 @@ public class SpikeGenerator : MonoBehaviour
     public float SpeedMultiplier => _speedMultiplier;
     
     [SerializeField] private SpikePool spikePool;
-    [SerializeField] public ShipPool shipPool;
     [FormerlySerializedAs("MinSpeed")] [SerializeField] private float _minSpeed;
     [FormerlySerializedAs("MaxSpeed")] [SerializeField] private float _maxSpeed;
     [FormerlySerializedAs("currentSpeed")] [SerializeField] private float _currentSpeed;
     [FormerlySerializedAs("SpeedMultiplier")] [SerializeField] private float _speedMultiplier;
+    [SerializeField] private float _minSpanwTime;
+    [SerializeField] private float _maxSpawnTime;
 
-    private List<SpikeScript> _spikes;
-    private List<SpikeScript> _ships;
+    private List<ObstaclesClass> _obstacles;
+    private float _nextSpawnTime;
 
     private void Awake()
     {
-        _spikes = new List<SpikeScript>();
-        _ships = new List<SpikeScript>();
+        _obstacles = new List<ObstaclesClass>();
         _currentSpeed = _minSpeed;
-        generateSpike(null);
-        generateShip(null);
     }
-    
-    public void generateSpike(SpikeScript oldSpike)
+
+    public void generateObstacle(ObstaclesClass oldSpike)
     {
-        if(oldSpike)
+        if (oldSpike)
         {
-            _spikes.Remove(oldSpike);
+            _obstacles.Remove(oldSpike);
+            spikePool?.ReturnObject(oldSpike);
+        }
+
+        if (spikePool != null)
+        {
+            ObstaclesClass SpikeIns = spikePool.GetObject();
+            if (SpikeIns != null)
+            {
+                SpikeIns.transform.position = transform.position;
+                SpikeIns.transform.rotation = transform.rotation;
+                _obstacles.Add(SpikeIns);
+            }
+        }
+    }
+
+
+    private void UpdateNextSpanwTime()
+    {
+        _nextSpawnTime = Time.time + Random.Range(_minSpanwTime, _maxSpawnTime);
+    }
+
+    private void Update()
+    {   if(_nextSpawnTime < Time.time)
+        {
+            generateObstacle(null);
+            UpdateNextSpanwTime();
+        }
+        ChangeSpeed();
+    }
+
+    public void RemoveObstacle(ObstaclesClass oldSpike)
+    {
+        if (oldSpike)
+        {
+            _obstacles.Remove(oldSpike);
             spikePool.ReturnObject(oldSpike);
         }
-        
-        SpikeScript SpikeIns = spikePool.GetObject();
-        SpikeIns.transform.position = transform.position;
-        SpikeIns.transform.rotation = transform.rotation;
-        _spikes.Add(SpikeIns);
-
-       
-    }
-    public void generateShip(SpikeScript oldShip)
-    {
-        if (oldShip)
-        {
-            _ships.Remove(oldShip);
-            shipPool.ReturnObject(oldShip);
-        }
-
-        SpikeScript ShipIns = shipPool.GetObject();
-        ShipIns.transform.position = new Vector3(25f,2,0);
-        ShipIns.transform.rotation = transform.rotation;
-        _spikes.Add(ShipIns);
-
-    }
-    public void RandomSpikeGeneration()
-    {
-        float randomWaitSpike = Random.Range(0.01f, 1f);
-        float randomWaitShip = Random.Range(0.2f, 1.2f);
-        Invoke("generateSpike", randomWaitSpike);
-        Invoke("generateShip", randomWaitShip);
-    }
-
-    private void FixedUpdate()
-    {
-        ChangeSpeed();
     }
 
     private void ChangeSpeed()
@@ -77,10 +77,7 @@ public class SpikeGenerator : MonoBehaviour
         
         _currentSpeed += _speedMultiplier;
         
-        for (int spikeIndex = 0; spikeIndex < _spikes.Count; spikeIndex++)
-            _spikes[spikeIndex].NotifySpeedChange(_currentSpeed);
-       
-        for (int shipIndex = 0; shipIndex < _ships.Count; shipIndex++)
-            _ships[shipIndex].NotifySpeedChange(_currentSpeed);
+        for (int spikeIndex = 0; spikeIndex < _obstacles.Count; spikeIndex++)
+            _obstacles[spikeIndex].NotifySpeedChange(_currentSpeed);
     }
 }
