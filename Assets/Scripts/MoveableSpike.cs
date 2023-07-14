@@ -41,10 +41,4 @@ public class MoveableSpike : ObstaclesClass
         }
     }
 
-    /*private IEnumerator MoveShip()
-    {
-        _targetYVelocity = Random.Range(0, 2) == 0 ? -3f : 3f;
-        yield return new WaitForSeconds(4f);
-    }*/
-
 }

@@ -10,10 +10,9 @@ public class PlayerScrpt : MonoBehaviour
     public SpikeGenerator spikeGenerator;
     private Rigidbody2D prb;
     private Animator anim;
-    //private Vector2 _direction = Vector2.right;
+    private Score_manager scoreManager;
     float score;
-    float scoretime;
-    public Text ScoreTxt;
+
 
     [SerializeField] private float moveSpeed = 7f;
     [SerializeField] private float jumpForce = 13f;
@@ -27,50 +26,35 @@ public class PlayerScrpt : MonoBehaviour
     private void Awake()
     {
         prb = GetComponent<Rigidbody2D>(); //player ridgidbody
-        score = 0;
         anim = GetComponent<Animator>();
+        scoreManager = Score_manager.Instance;
     }
 
-
-    // Start is called before the first frame update
-    private void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     private void Update()
     {
-        //float dirX = Input.GetAxisRaw("Horizontal");
-        //prb.velocity = new Vector2(dirX * moveSpeed, prb.velocity.y);
-
         if (Input.GetButtonDown("Jump"))
         {
             if (isGrounded == true)
             {
-               prb.velocity = new Vector2(prb.velocity.x, jumpForce);
+                prb.velocity = new Vector2(prb.velocity.x, jumpForce);
                 isGrounded = false;
             }
         }
         else if (Input.GetKeyDown("r"))
         {
             ResetState();
-        }
-
-
-        
-       
+        }     
     }
 
     private void FixedUpdate()
     {
         if (isAlive)
         {
-            scoretime = (spikeGenerator.CurrentSpeed - spikeGenerator.MinSpeed) / spikeGenerator.SpeedMultiplier;
-            score = Mathf.MoveTowards(score, 1.0f,spikeGenerator.CurrentSpeed/450000);
+            score = Mathf.MoveTowards(score, 1.0f, spikeGenerator.CurrentSpeed / 450000);
             int scoreToDisplay = (int)Mathf.Lerp(0, 9999f, score);
-            ScoreTxt.text = "Score: " + scoreToDisplay.ToString();
-            GameData.Instance.Score = scoreToDisplay;
+            scoreManager.AddScore(scoreToDisplay);
         }
 
         UpdateAnimationState();
@@ -109,18 +93,12 @@ public class PlayerScrpt : MonoBehaviour
             {
                 isGrounded = true;
             }
-
         }
 
-        if (collision.gameObject.CompareTag("spike") || collision.gameObject.CompareTag("ship"))
+        if (collision.gameObject.TryGetComponent(out ObstaclesClass obstacles))
         {
             isAlive = false;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-
-        
+            SceneManager.LoadScene("Scenes/EndScreen");
+        } 
     }
- 
-
-
 }

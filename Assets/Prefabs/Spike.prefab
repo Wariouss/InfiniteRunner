@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 3133015968283183972}
   - component: {fileID: 2156259459975596378}
   - component: {fileID: 992150428507035449}
-  - component: {fileID: 1891867086048346596}
-  - component: {fileID: 3185355113595867667}
   - component: {fileID: -1568643483943751671}
   m_Layer: 3
   m_Name: Spike
@@ -136,44 +134,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!68 &1891867086048346596
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2102320530257178113}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.45851648, y: -0.21905777}
-  - {x: -0.194008, y: 0.21133333}
-  - {x: -0.028074026, y: 0.5743139}
-  - {x: 0.20008516, y: 0.20614791}
-  - {x: 0.43777442, y: -0.21387243}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
---- !u!114 &3185355113595867667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2102320530257178113}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 542d662133d5a4544990464073361f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 0
 --- !u!114 &-1568643483943751671
 MonoBehaviour:
   m_ObjectHideFlags: 0

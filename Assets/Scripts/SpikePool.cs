@@ -30,9 +30,6 @@ public class SpikePool : MonoBehaviour
         }
     }
 
-
-   
-
     public ObstaclesClass GetObject()
     {
         if (pool.Count < 1)

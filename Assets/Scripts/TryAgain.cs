@@ -8,6 +8,6 @@ public class TryAgain : MonoBehaviour
 {
     public void GameOver()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene("Scenes/GameScreen");
     }
 }

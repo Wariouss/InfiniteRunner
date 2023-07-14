@@ -2385,6 +2385,7 @@ GameObject:
   - component: {fileID: 1601246905}
   - component: {fileID: 1601246907}
   - component: {fileID: 1601246906}
+  - component: {fileID: 1601246908}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -2454,6 +2455,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1601246904}
   m_CullTransparentMesh: 1
+--- !u!114 &1601246908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601246904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a26c7fdd421b264fba9baf7076b1f9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScoreTxt: {fileID: 1601246906}
 --- !u!1 &1820615420
 GameObject:
   m_ObjectHideFlags: 0
@@ -2583,7 +2597,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820615420}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.71, y: -3.31, z: 37.629448}
+  m_LocalPosition: {x: -7.86, y: -3.23, z: 37.629448}
   m_LocalScale: {x: 0.93813, y: 0.93813, z: 0.93813}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2603,7 +2617,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spikeGenerator: {fileID: 8854941257343544815}
-  ScoreTxt: {fileID: 1601246906}
   moveSpeed: 7
   jumpForce: 18
   isGrounded: 0
@@ -2650,7 +2663,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1820856369}
-  - component: {fileID: 1820856370}
   m_Layer: 0
   m_Name: Game Manger
   m_TagString: Untagged
@@ -2681,19 +2693,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1820856370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1820856368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2db20b478fd818642a5a6dda3511a1ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraSpeed: 0
 --- !u!4 &2430721674932599332
 Transform:
   m_ObjectHideFlags: 0

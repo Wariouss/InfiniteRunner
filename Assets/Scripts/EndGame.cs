@@ -7,6 +7,6 @@ public class EndGame : MonoBehaviour
 {
     public void Quit()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+        SceneManager.LoadScene("Scenes/Menu");
     }
 }

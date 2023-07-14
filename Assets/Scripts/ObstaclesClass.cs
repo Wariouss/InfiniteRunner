@@ -15,11 +15,6 @@ public class ObstaclesClass : MonoBehaviour
         _currentSpeed = speed;
     }
 
-    private void OnEnable()
-    {
-        
-    }
-
     private void Update()
     {
         rb.velocity = new Vector2(-_currentSpeed, rb.velocity.y);
